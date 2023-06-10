@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add-to-Cart</title>
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <img src="/assets/logo.png" alt="logo" />
+      <h1>Shopping list</h1>
+      <input type="text" id="input-field" placeholder="Item" />
+      <div id="multi-button-container">
+        <div id="multi-button">
+          <button class="category-button" id="food">Food</button>
+          <button class="category-button" id="health">Health</button>
+          <button class="category-button" id="hobby">Hobby</button>
+          <button class="category-button" id="fashion">Fashion</button>
+          <button class="category-button" id="electronic">Electronic</button>
+        </div>
+      </div>
+      <button id="add-button">Add item</button>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
