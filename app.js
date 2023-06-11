@@ -9,13 +9,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 // Firebase configuration
-const appSetting = {
+const appSettings = {
   databaseURL:
     "https://realtime-database-d978f-default-rtdb.asia-southeast1.firebasedatabase.app/",
 };
 
 // Initialize Firebase app
-const app = initializeApp(appSetting);
+const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const shoppingListInDB = ref(database, "shoppingList");
 
@@ -32,7 +32,6 @@ const clearInputField = () => (inputField.value = "");
 const clearShoppingListEl = () => (shoppingListEl.innerHTML = "");
 
 // Add event listener to category buttons
-
 categoryButtons.forEach((button) => {
   button.addEventListener("click", () => {
     selectedCategory = button.id;
@@ -41,13 +40,17 @@ categoryButtons.forEach((button) => {
 
 // Add event listener to the add button
 addButton.addEventListener("click", () => {
-  let inputValue = inputField.value;
+  let inputValue = inputField.value.trim();
 
-  // Check if a category button is selected
-  // If not, display an alert and exit the function
-  const selectedCategory = document.querySelector(".category-button.selected");
+  // Check if a category button is selected and if the input field is empty
+  // If so, display an alert and exit the function
   if (!selectedCategory) {
     alert("Please select a category");
+    return;
+  }
+
+  if (inputValue === "") {
+    alert("Please add an item");
     return;
   }
 
@@ -55,40 +58,38 @@ addButton.addEventListener("click", () => {
   const newItemRef = push(shoppingListInDB);
   const newItemData = {
     value: inputValue,
-    category: selectedCategory.id,
+    category: selectedCategory,
   };
   set(newItemRef, newItemData);
 
   // Reset values
   clearInputField();
-
-  selectedCategory.classList.remove("selected");
+  selectedCategory = null;
 });
 
-onValue(shoppingListInDB, function (snapshot) {
+onValue(shoppingListInDB, (snapshot) => {
+  const items = snapshot.val();
+
   if (snapshot.exists()) {
-    let itemsArray = Object.entries(snapshot.val());
+    const itemsArray = Object.entries(items);
     clearShoppingListEl();
 
-    for (let i = 0; i < itemsArray.length; i++) {
-      let currentItem = itemsArray[i];
-
-      appendItemToShoppingList(currentItem);
+    // Extract data's ID and value to psuh to the function's parameter
+    for (const [itemID, item] of itemsArray) {
+      appendItemToShoppingList(itemID, item);
     }
   } else {
     shoppingListEl.innerHTML = "No items here... yet";
   }
 });
 
-function appendItemToShoppingList(item) {
-  let itemID = item[0];
-  let itemValue = item[1].value;
-  let itemBackgroundColor = item[1].category;
+function appendItemToShoppingList(itemID, item) {
+  const { value, category } = item;
 
   const listItem = document.createElement("li");
   listItem.classList.add("list-item");
-  listItem.textContent = itemValue;
-  listItem.style.backgroundColor = getCategoryColor(itemBackgroundColor);
+  listItem.textContent = value;
+  listItem.style.backgroundColor = getCategoryColor(category);
   shoppingListEl.append(listItem);
 
   listItem.addEventListener("click", () => {
