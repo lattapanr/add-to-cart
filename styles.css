@@ -103,7 +103,7 @@ main {
 }
 
 img {
-  width: 70%;
+  width: 65%;
   max-width: 15rem;
   animation: fadeInLeft 1.5s;
 }
@@ -120,7 +120,7 @@ img {
 
 h1 {
   font-family: "BDScript";
-  font-size: 4rem;
+  font-size: 4.5rem;
   line-height: 3rem;
   margin-bottom: 1rem;
 }
