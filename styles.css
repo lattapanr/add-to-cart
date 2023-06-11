@@ -66,13 +66,13 @@ body {
   display: flex;
   justify-content: center;
   background-color: #a5a4a4;
+  user-select: none;
 }
 
 main {
-  max-width: 30rem;
+  width: 20rem;
   margin: 2rem 0;
   padding: 2rem 0;
-  width: 90%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -82,6 +82,17 @@ main {
   border-radius: 8px;
   background-color: white;
   box-shadow: inset;
+}
+
+#content-wrapper {
+  width: 80%;
+  margin: 2rem 0;
+  padding: 2rem 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 h1 {
@@ -96,14 +107,14 @@ img {
 }
 
 #input-field {
-  width: 80%;
+  width: 100%;
   border: 1px solid black;
   border-radius: 8px;
   padding: 5px;
 }
 
 #multi-button-container {
-  width: 80%;
+  width: 100%;
   overflow-x: auto;
   white-space: nowrap;
 }
@@ -182,10 +193,28 @@ img {
   border: 1px solid black;
   border-radius: 8px;
   padding: 2px 0;
-  width: 60%;
+  margin-bottom: 20px;
+  width: 100%;
   transition: all 0.2s ease-in;
 
   &:hover {
     background-color: #d1d1d1;
   }
+}
+
+#shopping-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 5px;
+}
+
+.list-item {
+  list-style: none;
+  border: 1px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 2px 7px;
+  margin-right: 5px;
+  font-weight: 300;
 }
