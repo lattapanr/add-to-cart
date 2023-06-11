@@ -35,8 +35,9 @@
   <body>
     <main>
       <div id="content-wrapper">
-        <img src="/assets/logo.png" alt="logo" />
-        <h1>Shopping list</h1>
+        <img id="cart" class="slide-right" src="/assets/logo.png" alt="logo" />
+        <h1 id="title">Add-to-Cart</h1>
+        <h2 id="purpose">Shopping list</h2>
         <input type="text" id="input-field" placeholder="Item" />
         <div id="multi-button-container">
           <div id="multi-button">
@@ -48,7 +49,10 @@
           </div>
         </div>
         <button id="add-button">Add item</button>
-        <ul id="shopping-list"></ul>
+        <div id="shopping-list-container">
+          <p>*Click on item to check it off</p>
+          <ul id="shopping-list"></ul>
+        </div>
       </div>
     </main>
 
