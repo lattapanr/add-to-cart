@@ -13,6 +13,11 @@ This is a simple shopping list app that utilizes Firebase Realtime Database for 
 
 You can view a live demo of the app [here](https://add-to-cart-alpha.vercel.app/).
 
+## Preview
+
+Here is the screenshot of the app.
+![add-to-cart-JS](https://github.com/lattapanr/add-to-cart/assets/77329731/417fbdbf-7502-43bf-b940-f6fb80afedd0)
+
 ## Credit
 
 This project is based on the Firebase course taught by Rafid Hoda on Scrimba. The course covers the fundamentals of using Firebase Realtime Database in web applications.
