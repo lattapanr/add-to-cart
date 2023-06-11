@@ -94,6 +94,7 @@ main {
 }
 
 #content-wrapper {
+  max-width: 20rem;
   width: 80%;
   padding: 2rem 0;
   display: flex;
@@ -272,6 +273,5 @@ button {
 
   main {
     max-width: 25rem;
-    width: 100%;
   }
 }
