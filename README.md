@@ -16,7 +16,8 @@ You can view a live demo of the app [here](https://add-to-cart-alpha.vercel.app/
 ## Preview
 
 Here is the screenshot of the app.
-<img src="https://github.com/lattapanr/add-to-cart/assets/77329731/417fbdbf-7502-43bf-b940-f6fb80afedd0" alt="add-to-cart-JS" width="200" height="300">
+
+<img src="https://github.com/lattapanr/add-to-cart/assets/77329731/bf596473-35f1-40c7-a800-914249463917" alt="add-to-cart-JS" width="200" height="300">
 
 ## Credit
 
