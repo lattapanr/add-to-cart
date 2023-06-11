@@ -24,23 +24,20 @@ const inputField = document.getElementById("input-field");
 const addButton = document.getElementById("add-button");
 const categoryButtons = document.querySelectorAll(".category-button");
 const shoppingListEl = document.getElementById("shopping-list");
-let backgroundColor = "";
+
+let selectedCategory = null;
 
 // Utility functions
 const clearInputField = () => (inputField.value = "");
 const clearShoppingListEl = () => (shoppingListEl.innerHTML = "");
 
 // Add event listener to category buttons
-function getCategoryButtonBackgroundColor() {
-  categoryButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      button.classList.add("selected");
 
-      backgroundColor = getCategoryColor(button.id);
-    });
+categoryButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    selectedCategory = button.id;
   });
-}
-getCategoryButtonBackgroundColor();
+});
 
 // Add event listener to the add button
 addButton.addEventListener("click", () => {
@@ -58,7 +55,7 @@ addButton.addEventListener("click", () => {
   const newItemRef = push(shoppingListInDB);
   const newItemData = {
     value: inputValue,
-    backgroundColor: getCategoryColor(selectedCategory.id),
+    category: selectedCategory.id,
   };
   set(newItemRef, newItemData);
 
@@ -86,12 +83,12 @@ onValue(shoppingListInDB, function (snapshot) {
 function appendItemToShoppingList(item) {
   let itemID = item[0];
   let itemValue = item[1].value;
-  let itemBackgroundColor = item[1].backgroundColor;
+  let itemBackgroundColor = item[1].category;
 
   const listItem = document.createElement("li");
   listItem.classList.add("list-item");
   listItem.textContent = itemValue;
-  listItem.style.backgroundColor = itemBackgroundColor;
+  listItem.style.backgroundColor = getCategoryColor(itemBackgroundColor);
   shoppingListEl.append(listItem);
 
   listItem.addEventListener("click", () => {
