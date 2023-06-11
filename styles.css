@@ -134,6 +134,10 @@ h2 {
   margin-bottom: 1rem;
 }
 
+button {
+  color: black;
+}
+
 #input-field {
   width: 100%;
   border: var(--border);
