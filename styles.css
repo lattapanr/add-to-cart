@@ -60,6 +60,22 @@ h6 {
 #__next {
   isolation: isolate;
 }
+/* End of reset code */
+
+:root {
+  --green: #00bf63;
+  --yellow: #ffde59;
+  --red: #ff5757;
+  --blue: #0cc0df;
+  --purple: #cb6ce6;
+  --border: 1px solid black;
+}
+
+@font-face {
+  font-family: "BDScript";
+  font-weight: bold;
+  src: url("assets/font/BDScript-Bold.woff") format("woff");
+}
 
 body {
   font-family: "Prompt", sans-serif;
@@ -71,52 +87,67 @@ body {
 
 main {
   width: 20rem;
-  margin: 2rem 0;
   padding: 2rem 0;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  border: 1px solid black;
-  border-radius: 8px;
+  border: var(--border);
   background-color: white;
-  box-shadow: inset;
 }
 
 #content-wrapper {
   width: 80%;
-  margin: 2rem 0;
   padding: 2rem 0;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-}
-
-h1 {
-  font-weight: 300;
-  font-size: 1.25rem;
-  text-transform: uppercase;
 }
 
 img {
   width: 70%;
   max-width: 15rem;
+  animation: fadeInLeft 1.5s;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-family: "BDScript";
+  font-size: 4rem;
+  line-height: 3rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-weight: 100;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
 #input-field {
   width: 100%;
-  border: 1px solid black;
+  border: var(--border);
   border-radius: 8px;
   padding: 5px;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 #multi-button-container {
   width: 100%;
   overflow-x: auto;
   white-space: nowrap;
+  margin-bottom: 1rem;
 }
 
 #multi-button {
@@ -124,7 +155,7 @@ img {
 }
 
 .category-button {
-  border: 1px solid black;
+  border: var(--border);
   border-radius: 8px;
   cursor: pointer;
   padding: 2px 7px;
@@ -139,52 +170,52 @@ img {
 }
 
 #food {
-  background-color: #00bf63;
+  background-color: var(--green);
 
   &:hover {
-    color: #00bf63;
+    color: var(--green);
     background-color: black;
-    border: 1px solid #00bf63;
+    border: 1px solid var(--green);
   }
 }
 
 #health {
-  background-color: #ffde59;
+  background-color: var(--yellow);
 
   &:hover {
-    color: #ffde59;
+    color: var(--yellow);
     background-color: black;
-    border: 1px solid #ffde59;
+    border: 1px solid var(--yellow);
   }
 }
 
 #hobby {
-  background-color: #ff5757;
+  background-color: var(--red);
 
   &:hover {
-    color: #ff5757;
+    color: var(--red);
     background-color: black;
-    border: 1px solid #ff5757;
+    border: 1px solid var(--red);
   }
 }
 
 #fashion {
-  background-color: #0cc0df;
+  background-color: var(--blue);
 
   &:hover {
-    color: #0cc0df;
+    color: var(--blue);
     background-color: black;
-    border: 1px solid #0cc0df;
+    border: 1px solid var(--blue);
   }
 }
 
 #electronic {
-  background-color: #cb6ce6;
+  background-color: var(--purple);
 
   &:hover {
-    color: #cb6ce6;
+    color: var(--purple);
     background-color: black;
-    border: 1px solid #cb6ce6;
+    border: 1px solid var(--purple);
   }
 }
 
@@ -202,6 +233,18 @@ img {
   }
 }
 
+#shopping-list-container {
+  border: 1px solid black;
+  box-shadow: inset 2px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+#shopping-list-container p {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
 #shopping-list {
   display: flex;
   flex-wrap: wrap;
@@ -211,7 +254,7 @@ img {
 
 .list-item {
   list-style: none;
-  border: 1px solid black;
+  border: var(--border);
   border-radius: 8px;
   cursor: pointer;
   padding: 2px 7px;
