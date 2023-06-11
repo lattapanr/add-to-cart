@@ -157,10 +157,11 @@ button {
 }
 
 .category-button {
+  font-size: 0.9rem;
   border: var(--border);
   border-radius: 8px;
   cursor: pointer;
-  padding: 2px 7px;
+  padding: 3px 9px;
   margin-right: 5px;
   font-weight: 300;
   transition: transform 0.3s ease;
@@ -255,6 +256,7 @@ button {
 }
 
 .list-item {
+  font-size: 0.85rem;
   list-style: none;
   border: var(--border);
   border-radius: 8px;
